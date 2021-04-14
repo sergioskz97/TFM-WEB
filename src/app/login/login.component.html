@@ -1,1 +1,42 @@
-<h1>hola</h1>
+<div class="bg-img">
+    <div class="content">
+        <header>Inicio de sesión</header>
+        <form action="#">
+            <div class="field">
+                <span class="fa fa-user"></span>
+                <input type="text" required placeholder="Usuario">
+            </div>
+            <div class="field space">
+                <span class="fa fa-lock"></span>
+                <input type="password" class="pass-key" required placeholder="Contraseña">
+                <span class="show">VER</span>
+            </div>
+            <div class="pass">
+                <a href="#">¿Olvidó su contraseña?</a>
+            </div>
+            <div class="field">
+                <input type="submit" value="INICIAR">
+            </div>
+        </form>
+        <br>
+        <div class="signup">
+            ¿No tienes cuenta?
+            <a href="#">Contactanos</a>
+        </div>
+    </div>
+</div>
+<script>
+    const pass_field = document.querySelector('.pass-key');
+    const showBtn = document.querySelector('.show');
+    showBtn.addEventListener('click', function () {
+        if (pass_field.type === "password") {
+            pass_field.type = "text";
+            showBtn.textContent = "HIDE";
+            showBtn.style.color = "#3498db";
+        } else {
+            pass_field.type = "password";
+            showBtn.textContent = "SHOW";
+            showBtn.style.color = "#222";
+        }
+    });
+</script>
