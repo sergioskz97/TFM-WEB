@@ -1,1 +1,22 @@
-<p>home works!</p>
+<div class="container">
+    <h1 style="margin-top: 5%">Titulación</h1>
+    <p>Busque información concreta: </p>
+    <input class="form-control" id="myInput" type="text" placeholder="Buscar..">
+    <br>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th *ngFor="let head of headers">{{head}}</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+                <tr *ngFor="let alumn of alumnData">
+                    <td *ngFor="let head of headers">{{alumn[head]}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>Descargue la tabla en formato excel.</p>
+    <button type="button" class="btn btn-dark" style="margin-bottom: 10%;">Descargar</button>
+</div>
