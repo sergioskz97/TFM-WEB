@@ -1,8 +1,50 @@
 <div class="container">
     <h1 style="margin-top: 5%">Titulación</h1>
+
+    <form>
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label for="course">Curso</label>
+                    <select class="form-control" id="course" formControlName="course">
+                        <option value="-">-</option>
+                        <option value="2019/20">2019/20</option>
+                        <option value="2018/19">2018/19</option>
+                        <option value="2017/18">2017/18</option>
+                        <option value="2016/17">2016/17</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="title">Titulación</label>
+                    <select class="form-control" id="title">
+                        <option value="-">-</option>
+                        <option value="M577">M577</option>
+                        <option value="M549">M549</option>
+                        <option value="G009">G009</option>
+                        <option value="G005">G005</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="gender">Género</label>
+                    <select class="form-control" id="gender">
+                        <option value="-">-</option>
+                        <option value="H">Hombre</option>
+                        <option value="M">Mujer</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="dni">DNI</label>
+                    <input class="form-control" id="dni" type="text" placeholder="DNI">
+                </div>
+            </div>
+        </div>
+    </form>
+
     <p>Busque información concreta: </p>
-    <input class="form-control" id="myInput" type="text" placeholder="Buscar..">
+    <input class="form-control" id="myInput" type="text" placeholder="Buscar...">
+
     <br>
+
     <div class="table-responsive">
         <table class="table table-bordered table-striped">
             <thead>

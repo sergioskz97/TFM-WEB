@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
 
-  invocation = new XMLHttpRequest();
   url = "http://localhost:7101/ull-alumno/RestService/get?titulacion=a&curso=a&dni=a&sexo=M";
   alumnData = [];
   headers: string[] = [];
@@ -28,10 +28,8 @@ export class HomeComponent implements OnInit {
       for (let i in auxHeaders){
         this.headers.push(auxHeaders[i])
       }
-      //console.log(this.headers);
 
       this.alumnData = aux.Egresados;
-
     });
   }
 }
