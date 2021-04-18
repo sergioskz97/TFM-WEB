@@ -31,9 +31,9 @@ export class HomeComponent implements OnInit {
     this.alumnData = [];
 
     this.http.get(auxUrl).subscribe(data => {
-      this.data = JSON.parse(JSON.stringify(data));
       let aux = JSON.parse(JSON.stringify(data));
       let auxHeaders = Object.keys(aux.Egresados[0]);
+      this.data = aux.Egresados;
 
       for (let i in auxHeaders) {
         this.headers.push(auxHeaders[i])
@@ -64,6 +64,7 @@ export class HomeComponent implements OnInit {
   }
 
   exportAsXLSX(): void {
-    this.excelService.exportAsExcelFile(this.data, 'sample');
+    let file = new Date().valueOf();
+    this.excelService.exportAsExcelFile(this.data, String(file));
   }
 }
