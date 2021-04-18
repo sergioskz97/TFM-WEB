@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InfoComponent } from './info/info.component';
 import { FormsModule } from '@angular/forms';
+import { ExcelService } from './services/excel.service';
 
 
 @NgModule({
@@ -27,7 +28,9 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [
+    ExcelService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
