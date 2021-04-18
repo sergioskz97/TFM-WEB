@@ -9,7 +9,13 @@ import { FormControl } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 
-  url = "http://localhost:7101/ull-alumno/RestService/get?titulacion=a&curso=a&dni=a&sexo=M";
+  course: String = "a";
+  title: String = "a";
+  gender: String = "a";
+  dni: String = "dni";
+
+  //url = "http://localhost:7101/ull-alumno/RestService/get?titulacion=a&curso=a&dni=a&sexo=M";
+  url = "http://localhost:7101/ull-alumno/RestService/get?";
   alumnData = [];
   headers: string[] = [];
 
@@ -21,7 +27,11 @@ export class HomeComponent implements OnInit {
   }
 
   getData(){
-    this.http.get(this.url).subscribe(data => {
+    let auxUrl = this.url + "titulacion=" + this.title + "&curso=" + this.course + "&dni=" + this.dni + "&sexo=" + this.gender ;
+
+    console.log(auxUrl);
+
+    this.http.get(auxUrl).subscribe(data => {
       let aux = JSON.parse(JSON.stringify(data));
       let auxHeaders = Object.keys(aux.Egresados[0]);
 
@@ -31,5 +41,25 @@ export class HomeComponent implements OnInit {
 
       this.alumnData = aux.Egresados;
     });
+  }
+
+  setCourse(course: String){
+    this.course = course;
+    this.getData();
+  }
+
+  setTitle(title: String){
+    this.title = title;
+    this.getData();
+  }
+
+  setGender(gender: String){
+    this.gender = gender;
+    this.getData();
+  }
+
+  setDNI(dni: String){
+    this.dni = dni;
+    this.getData();
   }
 }
