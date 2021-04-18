@@ -12,14 +12,14 @@ export class HomeComponent implements OnInit {
   course: String = "a";
   title: String = "a";
   gender: String = "a";
-  dni: String = "dni";
+  dni: String = "";
   data: any;
 
   url = "http://localhost:7101/ull-alumno/RestService/get?";
-  alumnData = [];
+  alumnData: any[] = [];
   headers: string[] = [];
 
-  constructor(private http: HttpClient, private excelService:ExcelService) {
+  constructor(private http: HttpClient, private excelService: ExcelService) {
     this.getData();
   }
 
@@ -27,7 +27,13 @@ export class HomeComponent implements OnInit {
   }
 
   getData() {
-    let auxUrl = this.url + "titulacion=" + this.title + "&curso=" + this.course + "&dni=" + this.dni + "&sexo=" + this.gender;
+    var auxDNI = "-";
+
+    if (this.dni != "") {
+      auxDNI = String(this.dni);
+    }
+
+    let auxUrl = this.url + "titulacion=" + this.title + "&curso=" + this.course + "&dni=" + auxDNI + "&sexo=" + this.gender;
     this.alumnData = [];
 
     this.http.get(auxUrl).subscribe(data => {
@@ -39,7 +45,29 @@ export class HomeComponent implements OnInit {
         this.headers.push(auxHeaders[i])
       }
 
-      this.alumnData = aux.Egresados;
+      //this.alumnData = aux.Egresados;
+
+      for (let i in aux.Egresados) {
+        let count = 0;
+
+        if (this.gender == "a" || this.gender == aux.Egresados[i]['sexo'])
+          count ++;
+        
+        if (this.course == "a" || this.course == aux.Egresados[i]['cursoacadRef'])
+          count ++;
+
+        if (this.title == "a" || this.title == aux.Egresados[i]['codTitulacion'])
+          count ++;
+
+        if (this.dni == "" || this.dni == aux.Egresados[i]['numeroDocumento'])
+          count ++;
+
+        if (count == 4) {
+          this.alumnData.push(aux.Egresados[i])
+        }
+      }
+
+      console.log(this.alumnData)
     });
   }
 
@@ -65,6 +93,6 @@ export class HomeComponent implements OnInit {
 
   exportAsXLSX(): void {
     let file = new Date().valueOf();
-    this.excelService.exportAsExcelFile(this.data, String(file));
+    this.excelService.exportAsExcelFile(this.alumnData, String(file));
   }
 }
