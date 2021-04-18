@@ -6,8 +6,8 @@
             <div class="row">
                 <div class="col">
                     <label for="course">Curso</label>
-                    <select class="form-control" id="course" formControlName="course">
-                        <option value="-">-</option>
+                    <select class="form-control" id="course" [(ngModel)]="course" [ngModelOptions]="{standalone: true}" (change) = "setCourse(course)">
+                        <option value="a">-</option>
                         <option value="2019/20">2019/20</option>
                         <option value="2018/19">2018/19</option>
                         <option value="2017/18">2017/18</option>
@@ -16,8 +16,8 @@
                 </div>
                 <div class="col">
                     <label for="title">Titulación</label>
-                    <select class="form-control" id="title">
-                        <option value="-">-</option>
+                    <select class="form-control" id="title" [(ngModel)]="title" [ngModelOptions]="{standalone: true}" (change) = "setTitle(title)">
+                        <option value="a">-</option>
                         <option value="M577">M577</option>
                         <option value="M549">M549</option>
                         <option value="G009">G009</option>
@@ -26,15 +26,15 @@
                 </div>
                 <div class="col">
                     <label for="gender">Género</label>
-                    <select class="form-control" id="gender">
-                        <option value="-">-</option>
+                    <select class="form-control" id="gender" [(ngModel)]="gender" [ngModelOptions]="{standalone: true}" (change) = "setGender(gender)">
+                        <option value="a">-</option>
                         <option value="H">Hombre</option>
                         <option value="M">Mujer</option>
                     </select>
                 </div>
                 <div class="col">
                     <label for="dni">DNI</label>
-                    <input class="form-control" id="dni" type="text" placeholder="DNI">
+                    <input class="form-control" id="dni" type="text" placeholder="DNI" [(ngModel)]="dni" [ngModelOptions]="{standalone: true}" (change) = "setDNI(dni)">
                 </div>
             </div>
         </div>
