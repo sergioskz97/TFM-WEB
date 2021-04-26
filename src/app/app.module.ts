@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { InfoComponent } from './info/info.component';
 import { FormsModule } from '@angular/forms';
 import { ExcelService } from './services/excel.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { ExcelService } from './services/excel.service';
     LoginComponent,
     HomeComponent,
     InfoComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

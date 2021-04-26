@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   dni: String = "";
   data: any;
 
-  url = "http://localhost:7101/ull-alumno/RestService/get?";
+  url = "http://localhost:7101/ull-alumno/getStudentsData?";
   alumnData: any[] = [];
   headers: string[] = [];
 
