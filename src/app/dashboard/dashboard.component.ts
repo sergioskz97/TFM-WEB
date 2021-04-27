@@ -8,23 +8,6 @@ import { APIService } from '../services/api.service';
 })
 export class DashboardComponent implements OnInit {
 
-  single: any[] = [];
-
-  constructor(private dataService: APIService) {
-
-  }
-
-  ngOnInit(): void {
-    this.getTotalFromApi();
-  }
-
-  async getTotalFromApi() {
-    await this.dataService.getTotalStudents().subscribe(data => {
-      this.single = data.DBstudentsTotalOutput;
-      console.log(this.single)
-    });
-  }
-
   public chartType: string = 'line';
 
   public chartDatasets: Array<any> = [
@@ -52,5 +35,20 @@ export class DashboardComponent implements OnInit {
   };
   public chartClicked(e: any): void { }
   public chartHovered(e: any): void { }
+  single: any[] = [];
 
+  constructor(private dataService: APIService) {
+
+  }
+
+  ngOnInit(): void {
+    this.getTotalFromApi();
+  }
+
+  async getTotalFromApi() {
+    await this.dataService.getTotalStudents().subscribe(data => {
+      this.single = data.DBstudentsTotalOutput;
+      console.log(this.single)
+    });
+  }
 }
