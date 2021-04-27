@@ -28,7 +28,9 @@ export class DashboardComponent implements OnInit {
 
   constructor(private http: HttpClient) { 
     this.http.get(this.url1).subscribe(data => {
-      this.single = JSON.parse(JSON.stringify(data));
+      let aux = JSON.parse(JSON.stringify(data));
+      this.single = aux.DBstudentsTotalOutput;
+      console.log(this.single)
     })
   }
 

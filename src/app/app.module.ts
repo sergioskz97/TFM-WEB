@@ -12,7 +12,7 @@ import { InfoComponent } from './info/info.component';
 import { FormsModule } from '@angular/forms';
 import { ExcelService } from './services/excel.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -29,6 +29,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    NgxChartsModule,
   ],
   providers: [
     ExcelService,
