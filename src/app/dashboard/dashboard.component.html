@@ -2,4 +2,9 @@
     <h1 style="margin-top: 5%;">Panel de estadísticas</h1>
     <hr>
 
+    <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasets" [labels]="chartLabels" [colors]="chartColors"
+        [options]="chartOptions" [legend]="true" (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)">
+    </canvas>
+    
 </div>
