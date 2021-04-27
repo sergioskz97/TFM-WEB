@@ -45,8 +45,6 @@ export class HomeComponent implements OnInit {
         this.headers.push(auxHeaders[i])
       }
 
-      //this.alumnData = aux.Egresados;
-
       for (let i in aux.Egresados) {
         let count = 0;
 

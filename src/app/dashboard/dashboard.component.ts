@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { APIService } from '../services/api.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class DashboardComponent implements OnInit {
 
   url1 = "http://localhost:7101/ull-alumno/getStudentsTotal";
-  view: any[] = [700, 400];
+  view: [number, number] = [700, 400];
   single: any[] = [];
 
   // options
@@ -18,28 +18,31 @@ export class DashboardComponent implements OnInit {
   gradient = false;
   showLegend = true;
   showXAxisLabel = true;
-  xAxisLabel = 'Country';
+  xAxisLabel = 'Titulaciones';
   showYAxisLabel = true;
-  yAxisLabel = 'Population';
+  yAxisLabel = 'Número de alumnos';
 
   colorScheme = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   };
 
-  constructor(private http: HttpClient) { 
-    this.http.get(this.url1).subscribe(data => {
-      let aux = JSON.parse(JSON.stringify(data));
-      this.single = aux.DBstudentsTotalOutput;
-      console.log(this.single)
-    })
+  constructor(private dataService: APIService) {
+
   }
 
   ngOnInit(): void {
-    Object.assign(this.single)
+    this.getTotalFromApi();
   }
 
   onSelect(event: any) {
     console.log(event);
+  }
+
+  async getTotalFromApi(){
+    await this.dataService.getTotalStudents().subscribe(data => {
+      this.single = data.DBstudentsTotalOutput;
+      console.log(this.single)
+    });
   }
 
 }
