@@ -12,7 +12,8 @@ import { InfoComponent } from './info/info.component';
 import { FormsModule } from '@angular/forms';
 import { ExcelService } from './services/excel.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    NgxChartsModule,
+    MDBBootstrapModule.forRoot(),
   ],
   providers: [
     ExcelService,
