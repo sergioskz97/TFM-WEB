@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { ExcelService } from './services/excel.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     HttpClientModule,
     FormsModule,
     NgxChartsModule,
+    ChartsModule,
   ],
   providers: [
     ExcelService,

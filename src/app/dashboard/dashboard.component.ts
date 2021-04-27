@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { APIService } from '../services/api.service';
+import * as chartJS from 'chart.js';
+import { Color, Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,23 +10,19 @@ import { APIService } from '../services/api.service';
 })
 export class DashboardComponent implements OnInit {
 
-  url1 = "http://localhost:7101/ull-alumno/getStudentsTotal";
-  view: [number, number] = [700, 400];
   single: any[] = [];
-
-  // options
-  showXAxis = true;
-  showYAxis = true;
-  gradient = false;
-  showLegend = true;
-  showXAxisLabel = true;
-  xAxisLabel = 'Titulaciones';
-  showYAxisLabel = true;
-  yAxisLabel = 'Número de alumnos';
-
-  colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+  barChartOptions: chartJS.ChartOptions = {
+    responsive: true,
   };
+
+  barChartLabels: Label[] = ['Apple', 'Banana', 'Kiwifruit', 'Blueberry', 'Orange', 'Grapes'];
+  barChartType: chartJS.ChartType = 'bar';
+  barChartLegend = true;
+  barChartPlugins = [];
+
+  barChartData: chartJS.ChartDataset[] = [
+    { data: this.single }
+  ];
 
   constructor(private dataService: APIService) {
 
@@ -32,10 +30,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTotalFromApi();
-  }
-
-  onSelect(event: any) {
-    console.log(event);
   }
 
   async getTotalFromApi(){
