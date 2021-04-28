@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
 
   getData() {
     var auxDNI = "-";
+    this.pageData.length = 0;
 
     if (this.dni != "") {
       auxDNI = String(this.dni);
@@ -70,7 +71,10 @@ export class HomeComponent implements OnInit {
         }
       }
 
-      console.log(this.alumnData);
+      this.pageData = this.data.slice((this.page -1) * this.pageSize, (this.page -1) * this.pageSize + this.pageSize);
+
+      console.log(this.pageData);
+
       this.collectionSize = this.alumnData.length;
     });
   }
@@ -102,12 +106,5 @@ export class HomeComponent implements OnInit {
 
   refreshPage(){
     this.pageData = this.data.slice((this.page -1) * this.pageSize, (this.page -1) * this.pageSize + this.pageSize);
-    //console.log(this.data[5]);
   }
-
-  /*refreshCountries() {
-    this.countries = COUNTRIES
-      .map((country, i) => ({id: i + 1, ...country}))
-      .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
-  }*/
 }
