@@ -8,7 +8,11 @@ import { APIService } from '../services/api.service';
 })
 export class DashboardComponent implements OnInit {
 
-  public chartType: string = 'line';
+  public chartType: string = 'bar';
+  public barType: string = 'bar';
+
+  public barLabels: Array<any> = [];
+  public barData: Array<any> = [];
 
   public chartDatasets: Array<any> = [
     { data: [65, 59, 80, 81, 56, 55, 40], label: 'My First dataset' },
@@ -33,8 +37,10 @@ export class DashboardComponent implements OnInit {
   public chartOptions: any = {
     responsive: true
   };
+
   public chartClicked(e: any): void { }
   public chartHovered(e: any): void { }
+
   single: any[] = [];
 
   constructor(private dataService: APIService) {
@@ -43,12 +49,22 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTotalFromApi();
+    console.log(this.barData);
+    console.log(this.barLabels);
   }
 
   async getTotalFromApi() {
     await this.dataService.getTotalStudents().subscribe(data => {
       this.single = data.DBstudentsTotalOutput;
-      console.log(this.single)
+      var auxData = new Array();
+
+      for (let i in this.single){
+        this.barLabels.push(this.single[i]["COD_TITULACION"]);
+        auxData.push(this.single[i]["COUNT___"]);
+      }
+
+      var finalData = { data: auxData, label: 'Titulaciones'};
+      this.barData.push(finalData);
     });
   }
 }
