@@ -1,6 +1,17 @@
 <div class="container">
-    <h1 style="margin-top: 5%;">Panel de estadísticas</h1>
-    <hr>
+  <h1 style="margin-top: 5%;">Panel de estadísticas</h1>
+  <hr>
+
+  <!--<canvas mdbChart
+      [chartType]="barType"
+      [datasets]="chartDatasets"
+      [labels]="chartLabels"
+      [colors]="chartColors"
+      [options]="chartOptions"
+      [legend]="true"
+      (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)">
+  </canvas>
 
   <canvas mdbChart
       [chartType]="barType"
@@ -11,6 +22,7 @@
       [legend]="true"
       (chartHover)="chartHovered($event)"
       (chartClick)="chartClicked($event)">
-  </canvas>
+  </canvas>-->
 
+  <canvas id="barChart" width="800" height="450"></canvas>
 </div>
