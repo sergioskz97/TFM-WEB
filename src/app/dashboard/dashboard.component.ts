@@ -10,48 +10,13 @@ import { APIService } from '../services/api.service';
 })
 export class DashboardComponent implements OnInit {
 
-  public chartType: string = 'bar';
-  public barType: string = 'bar';
-
-  /*public barLabels: Array<any> = [];
-  public barData: Array<any> = [];*/
-
-  public chartDatasets: Array<any> = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'My First dataset' },
-    //{ data: [28, 48, 40, 19, 86, 27, 90], label: 'My Second dataset' }
-  ];
-
-  public chartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-  public chartColors: Array<any> = [
-    {
-      backgroundColor: 'rgba(105, 0, 132, .2)',
-      borderColor: 'rgba(200, 99, 132, .7)',
-      borderWidth: 2,
-    },
-    {
-      backgroundColor: 'rgba(0, 137, 132, .2)',
-      borderColor: 'rgba(0, 10, 130, .7)',
-      borderWidth: 2,
-    }
-  ];
-
-  public chartOptions: any = {
-    responsive: true
-  };
-
-  public chartClicked(e: any): void { }
-  public chartHovered(e: any): void { }
-
-  single: any[] = [];
-
   constructor(private dataService: APIService) {
 
   }
 
   ngOnInit(): void {
 
-    // Total students bar chart
+    // Print data 
     this.dataService.getTotalStudents().subscribe(res => {
       let aux = res.DBstudentsTotalOutput;
       let auxData = new Array();
@@ -65,6 +30,7 @@ export class DashboardComponent implements OnInit {
 
       barData.push({ data: auxData, label: 'Titulaciones', backgroundColor: 'rgba(0, 137, 132, .2)', borderColor: 'rgba(200, 99, 132, .7)', borderWidth: 2 });
 
+      // Bar Chart
       new Chart('barChart', {
         type: 'bar',
         data: {
@@ -81,9 +47,24 @@ export class DashboardComponent implements OnInit {
             yAxes: [{
               display: true,
               ticks: {
-                beginAtZero: true 
+                beginAtZero: true
               }
             }]
+          }
+        }
+      });
+
+      // Pie Chart
+      new Chart('pieChart', {
+        type: 'pie',
+        data: {
+          labels: barLabels,
+          datasets: barData
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Predicted world population (millions) in 2050'
           }
         }
       });
