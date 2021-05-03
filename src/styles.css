@@ -189,3 +189,15 @@ i span {
 .signup a:hover {
     text-decoration: underline;
 }
+
+a{
+    color: #FFF;
+}
+
+a:hover{
+    color: #F0F0F0;
+}
+
+span{
+    color: #FFF;
+}

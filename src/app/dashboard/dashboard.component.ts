@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
           datasets: barData
         },
         options: {
-          legend: { display: true },
+          legend: { display: false },
           title: {
             display: false,
             text: 'Total de egresados por titulacion'
@@ -56,7 +56,7 @@ export class DashboardComponent implements OnInit {
 
       // Pie Chart
       new Chart('pieChart', {
-        type: 'pie',
+        type: 'doughnut',
         data: {
           labels: barLabels,
           datasets: barData
