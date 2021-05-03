@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
         auxData.push(aux[i]["COUNT___"]);
       }
 
-      barData.push({ data: auxData, label: 'Titulaciones', backgroundColor: 'rgba(0, 137, 132, .2)', borderColor: 'rgba(200, 99, 132, .7)', borderWidth: 2 });
+      barData.push({ data: auxData, label: 'Alumnos', backgroundColor: '#41B3A3', borderColor: '#85DCB0', borderWidth: 2 });
 
       // Bar Chart
       new Chart('barChart', {
@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
           datasets: barData
         },
         options: {
-          legend: { display: true },
+          legend: { display: false },
           title: {
             display: false,
             text: 'Total de egresados por titulacion'
@@ -56,7 +56,7 @@ export class DashboardComponent implements OnInit {
 
       // Pie Chart
       new Chart('pieChart', {
-        type: 'pie',
+        type: 'doughnut',
         data: {
           labels: barLabels,
           datasets: barData

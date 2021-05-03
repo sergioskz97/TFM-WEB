@@ -9,7 +9,7 @@ import { ExcelService } from '../services/excel.service';
 })
 export class HomeComponent implements OnInit {
 
-  course: String = "a";
+  course: String = "2018/19";
   title: String = "a";
   gender: String = "a";
   dni: String = "";
