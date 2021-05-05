@@ -62,8 +62,9 @@ export class DashboardComponent implements OnInit {
           datasets: barData
         },
         options: {
+          legend: { display: false },
           title: {
-            display: true,
+            display: false,
             text: 'Predicted world population (millions) in 2050'
           }
         }

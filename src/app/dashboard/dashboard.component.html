@@ -1,10 +1,380 @@
 <div class="container">
-  <h1 style="margin-top: 5%;">Panel de estadísticas</h1>
-  <hr>
+  <div class="row">
+    <div class="col-12">
+      <div class="page_title_box d-flex align-items-center justify-content-between">
+        <div class="page_title_left">
+          <h3 class="f_s_30 f_w_700 text_white">Dashboard</h3>
+
+          <ol class="breadcrumb page_bradcam mb-0">
+            <li class="breadcrumb-item"><a href="javascript:void(0);">Salessa </a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0);">Dashboard</a></li>
+            <li class="breadcrumb-item active">Sales</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search bar -->
+  <div class="container-fluid no-gutters">
+    <div class="row">
+      <div class="col-lg-12 p-0 ">
+        <div class="header_iner d-flex justify-content-between align-items-center">
+          <div class="sidebar_icon d-lg-none">
+            <i class="ti-menu"></i>
+          </div>
+          <div class="serach_field-area d-flex align-items-center">
+            <div class="search_inner">
+              <form action="#">
+                <div class="search_field">
+                  <input type="text" placeholder="Search here...">
+                </div>
+                <button type="submit"> <img src="../../assets/img/icon_search.svg" alt="Icono de búsqueda"> </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Search bar end -->
+
+  <!-- Content -->
+  <div class="row ">
+    <div class="col-lg-8 card_height_100">
+
+      <!-- Bar chart -->
+      <div class="white_card mb_20">
+        <div class="white_card_header">
+          <div class="box_header m-0">
+            <div class="main-title">
+              <h3 class="m-0">Número de egresados</h3>
+            </div>
+            <div class="float-lg-right float-none sales_renew_btns justify-content-end">
+              <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">This Week</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Last Week</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#">Last Month</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="white_card_body" style="height: 286px;">
+          <div class="chartjs-size-monitor">
+            <div class="chartjs-size-monitor-expand">
+              <div class=""></div>
+            </div>
+            <div class="chartjs-size-monitor-shrink">
+              <div class=""></div>
+            </div>
+          </div>
+          <canvas id="barChart" width="653" height="251" style="display: block; width: 653px; height: 251px;"
+            class="chartjs-render-monitor"></canvas>
+        </div>
+      </div>
+      <!-- Bar chart end -->
+
+      <div class="white_card mb_20">
+        <div class="white_card_body renew_report_card d-flex align-items-center justify-content-between flex-wrap">
+          <div class="renew_report_left">
+            <h4 class="f_s_19 f_w_600 color_theme2 mb-0">Descarga los datos</h4>
+            <p class="color_gray2 f_s_12 f_w_600">Descarga los datos en formato excel</p>
+          </div>
+          <div class="create_report_btn">
+            <a href="#" class="btn_1 mt-1 mb-1">Descargar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-4 card_height_100 mb_20">
+      <div class="white_card">    
+        <!-- Pie chart -->
+        <div class="white_card_header">
+          <div class="box_header m-0">
+            <div class="main-title">
+              <h3 class="m-0">Total de egresados</h3>
+            </div>
+            <div class="header_more_tool">
+              <div class="dropdown">
+                <span class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
+                  <i class="ti-more-alt"></i>
+                </span>
+                <!--<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#"> <i class="ti-eye"></i> Action</a>
+                  <a class="dropdown-item" href="#"> <i class="ti-trash"></i> Delete</a>
+                  <a class="dropdown-item" href="#"> <i class="fas fa-edit"></i> Edit</a>
+                  <a class="dropdown-item" href="#"> <i class="ti-printer"></i> Print</a>
+                  <a class="dropdown-item" href="#"> <i class="fa fa-download"></i> Download</a>
+                </div>-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="white_card_body p-0">
+          <div class="card_container">
+            <div id="platform_type_dates_donut"
+              style="height: 280px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative;"
+              _echarts_instance_="ec_1620234131108">
+              <div
+                style="position: relative; overflow: hidden; width: 471px; height: 280px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;">
+                </div>
+              <div
+                style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s; background-color: rgba(50, 50, 50, 0.7); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font: 14px / 21px &quot;Microsoft YaHei&quot;; padding: 5px; left: 134px; top: 55px; pointer-events: none;">
+                04-16 <br>iPhone 7 : 29 (31.18%)</div>
+
+                <canvas id="pieChart" data-zr-dom-id="zr_0" width="500" height="300"
+                  style="position: absolute; left: 0px; top: 0px; width: 471px; height: 280px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <!-- Pie chart end -->
+
+      <div class="sales_unit_footer d-flex justify-content-between">
+        <div class="single_sales">
+          <h3>$57k</h3>
+          <p class="d-flex align-items-center"> <i class="ti-arrow-up"></i> <span> 14.5%</span> Up From Last Month </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Support boxes -->
+    <div class="col-lg-4">
+      <div class="white_card card_height_100  mb_20">
+        <div class="white_card_header">
+          <div class="box_header m-0">
+            <div class="main-title">
+              <h3 class="m-0">Transaction</h3>
+            </div>
+            <div class="header_more_tool">
+              <div class="dropdown">
+                <span class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
+                  <i class="ti-more-alt"></i>
+                </span>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#"> <i class="ti-eye"></i> Action</a>
+                  <a class="dropdown-item" href="#"> <i class="ti-trash"></i> Delete</a>
+                  <a class="dropdown-item" href="#"> <i class="fas fa-edit"></i> Edit</a>
+                  <a class="dropdown-item" href="#"> <i class="ti-printer"></i> Print</a>
+                  <a class="dropdown-item" href="#"> <i class="fa fa-download"></i> Download</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="white_card_body">
+          <div class="table-responsive">
+            <table class="table bayer_table m-0">
+              <tbody>
+                <tr>
+                  <td>
+                    <img class="byder_thumb wh_56" src="img/Payment/1.png" alt="">
+                  </td>
+                  <td>
+                    <div class="payment_gatway">
+                      <h5 class="byer_name  f_s_16 f_w_700 color_theme">Electricity Bill</h5>
+                      <p class="color_gray f_s_12 f_w_700 ">10 Aug 03:00PM</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="payment_gatway text-right">
+                      <h5 class="byer_name  f_s_16 f_w_700 text_color_4">- $ 1254.00</h5>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img class="byder_thumb wh_56" src="img/Payment/1.png" alt="">
+                  </td>
+                  <td>
+                    <div class="payment_gatway">
+                      <h5 class="byer_name  f_s_16 f_w_700 color_theme">Showroom Rent</h5>
+                      <p class="color_gray f_s_12 f_w_700 ">10 Aug 03:00PM</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="payment_gatway text-right">
+                      <h5 class="byer_name  f_s_16 f_w_700 text_color_5">+ $ 1254.00</h5>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img class="byder_thumb wh_56" src="img/Payment/1.png" alt="">
+                  </td>
+                  <td>
+                    <div class="payment_gatway">
+                      <h5 class="byer_name  f_s_16 f_w_700 color_theme">Iron Costing</h5>
+                      <p class="color_gray f_s_12 f_w_700 ">10 Aug 03:00PM</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="payment_gatway text-right">
+                      <h5 class="byer_name  f_s_16 f_w_700 text_color_5">+ $ 1254.00</h5>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img class="byder_thumb wh_56" src="img/Payment/1.png" alt="">
+                  </td>
+                  <td>
+                    <div class="payment_gatway">
+                      <h5 class="byer_name  f_s_16 f_w_700 color_theme">Packeging Cost</h5>
+                      <p class="color_gray f_s_12 f_w_700 ">10 Aug 03:00PM</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="payment_gatway text-right">
+                      <h5 class="byer_name  f_s_16 f_w_700 text_color_5">+ $ 1254.00</h5>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="white_card card_height_100  mb_20">
+        <div class="white_card_header">
+          <div class="box_header m-0">
+            <div class="main-title">
+              <h3 class="m-0">News &amp; Update</h3>
+            </div>
+            <div class="single_wrap_input">
+              <select class="nice_Select2 wide" name="" id="" style="display: none;">
+                <option value="1">Today</option>
+                <option value="1">Tomorrow</option>
+                <option value="1">Yesterday</option>
+              </select>
+              <div class="nice-select nice_Select2 wide" tabindex="0"><span class="current">Today</span>
+                <div class="nice-select-search-box"><input type="text" class="nice-select-search"
+                    placeholder="Search..."></div>
+                <ul class="list">
+                  <li data-value="1" class="option selected">Today</li>
+                  <li data-value="1" class="option">Tomorrow</li>
+                  <li data-value="1" class="option">Yesterday</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="white_card_body">
+          <div class="single_update_news">
+            <h5 class="byer_name  f_s_16 f_w_600 color_theme2">36% off For pixel lights Couslations Types.</h5>
+            <p class="color_gray f_s_12 f_w_700 ">Sorem Kpsum is simply of the printing..</p>
+          </div>
+          <div class="single_update_news">
+            <h5 class="byer_name  f_s_16 f_w_600 color_theme2">We are produce new product this</h5>
+            <p class="color_gray f_s_12 f_w_700 ">Gorem Rpsum is simply text of the printing...</p>
+          </div>
+          <div class="single_update_news">
+            <h5 class="byer_name  f_s_16 f_w_600 color_theme2">50% off For COVID Couslations Types.</h5>
+            <p class="color_gray f_s_12 f_w_700 ">EoremHpsum is simply dummy...</p>
+          </div>
+          <div class="load_more_button text-center mt_30">
+            <a class="theme_text_btn d-flex align-items-center justify-content-center" href="#">Load more <i
+                class="ti-angle-down f_s_12 ml-2"></i> </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="white_card card_height_100  mb_20">
+        <div class="white_card_header">
+          <div class="box_header m-0">
+            <div class="main-title">
+              <h3 class="m-0">Account Info</h3>
+            </div>
+            <div class="header_more_tool">
+              <div class="dropdown">
+                <span class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
+                  <i class="ti-more-alt"></i>
+                </span>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#"> <i class="ti-eye"></i> Action</a>
+                  <a class="dropdown-item" href="#"> <i class="ti-trash"></i> Delete</a>
+                  <a class="dropdown-item" href="#"> <i class="fas fa-edit"></i> Edit</a>
+                  <a class="dropdown-item" href="#"> <i class="ti-printer"></i> Print</a>
+                  <a class="dropdown-item" href="#"> <i class="fa fa-download"></i> Download</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="white_card_body">
+          <div class="monthly_plan_wraper">
+            <div class="single_plan d-flex align-items-center justify-content-between">
+              <h5 class="color_theme2 f_s_14 f_w_700 mb-0">Monthly Plan</h5>
+              <span class="color_gray2 f_s_16 f_w_700">$25</span>
+            </div>
+            <div class="single_plan d-flex align-items-center justify-content-between">
+              <h5 class="color_theme2 f_s_14 f_w_700 mb-0">Taxes</h5>
+              <span class="color_gray2 f_s_16 f_w_700">$14</span>
+            </div>
+            <div class="single_plan d-flex align-items-start justify-content-between">
+              <div>
+                <h5 class="color_theme2 f_s_14 f_w_700 mb-0">Extera</h5>
+                <p class="f_s_13 f_w_700">Netflix and other bills in this
+                  month.</p>
+              </div>
+              <span class="color_gray2 f_s_16 f_w_700">$25</span>
+            </div>
+            <div class="total_blance mt_20 mb_10">
+              <span class="f_s_13 f_w_700 color_gray ">Total balance</span>
+              <div class="total_blance_inner d-flex align-items-center flex-wrap justify-content-between">
+                <div>
+                  <span class="f_s_40 f_w_700 color_text_3 d-block">$3650</span>
+                  <a class="badge_btn_5" href="#">+1235</a>
+                </div>
+                <div>
+                  <div><a class="badge_btn_6 mb_15" href="#">Today</a></div>
+                  <div><a class="badge_btn_7" href="#">This week</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Content end -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <p></p>
-  <canvas id="barChart" width="800" height="450"></canvas>
-  
+
   <canvas id="pieChart" width="800" height="450"></canvas>
 
 </div>
