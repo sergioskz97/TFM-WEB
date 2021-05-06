@@ -1,8 +1,23 @@
-.h1{
+.h1 {
     margin-top: 50%;
 }
 
-.btn{
+.btn {
     color: #FFF;
     background-color: #41B3A3;
+}
+
+/* Pagination styles */
+/deep/ .pagination .page-link {
+    color: #E27D60 !important;
+}
+
+/deep/ .page-item.active .page-link {
+    color: #fff !important;
+    background-color: #E27D60 !important;
+    border-color: #E27D60 !important;
+}
+
+/deep/ span {
+    color: #E27D60;
 }
