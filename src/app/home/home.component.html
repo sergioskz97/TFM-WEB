@@ -96,11 +96,11 @@
 
                     <br>
 
-                    <div class="table-responsive" style="height: 541px;">
-                        <table class="table table-bordered table-striped">
+                    <div class="table-responsive" style="height: 560px;">
+                        <table class="table">
                             <thead>
                                 <tr>
-                                    <th *ngFor="let head of headers">{{head}}</th>
+                                    <th *ngFor="let head of headers">{{head | titlecase}}</th>
                                 </tr>
                             </thead>
                             <tbody id="myTable">
@@ -111,17 +111,17 @@
                         </table>
                     </div>
 
-                    <div class="d-flex justify-content-between p-2">
+                    <div class="d-flex justify-content-between p-2" style="margin-top: 1%;">
                         <ngb-pagination [collectionSize]="collectionSize" class="pagination" [(page)]="page"
                             [pageSize]="pageSize" (pageChange)="refreshPage()">
                         </ngb-pagination>
 
-                        <select class="custom-select" style="width: auto" [(ngModel)]="pageSize"
+                        <!--<select class="custom-select" style="width: auto" [(ngModel)]="pageSize"
                             (ngModelChange)="pageSize">
                             <option [ngValue]="2">2 elementos en la lista</option>
                             <option [ngValue]="4">4 elementos en la lista</option>
                             <option [ngValue]="6">6 elementos en la lista</option>
-                        </select>
+                        </select>-->
                     </div>
                     <!-- Table Content end -->
                 </div>

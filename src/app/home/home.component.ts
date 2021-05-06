@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   pageSize = 10;
   collectionSize: number = 0;
 
-  url = "http://localhost:7101/ull-alumno/getStudentsData?";
+  url = "http://localhost:7101/ull-alumno/getStudentsInfo?";
   alumnData: any[] = [];
   headers: string[] = [];
 
@@ -44,36 +44,40 @@ export class HomeComponent implements OnInit {
 
     this.http.get(auxUrl).subscribe(data => {
       let aux = JSON.parse(JSON.stringify(data));
-      let auxHeaders = Object.keys(aux.Egresados[0]);
-      this.data = aux.Egresados;
+      let auxHeaders = Object.keys(aux.DBstudentsInfoOutput[0]);
+      this.data = aux.DBstudentsInfoOutput;
 
       for (let i in auxHeaders) {
         this.headers.push(auxHeaders[i])
       }
 
-      for (let i in aux.Egresados) {
+      for (let i in aux.DBstudentsInfoOutput) {
         let count = 0;
 
-        if (this.gender == "a" || this.gender == aux.Egresados[i]['sexo'])
+        if (this.gender == "a" || this.gender == aux.DBstudentsInfoOutput[i]['SEXO']){
           count ++;
+        }
         
-        if (this.course == "a" || this.course == aux.Egresados[i]['cursoacadRef'])
+        if (this.course == "a" || this.course == aux.DBstudentsInfoOutput[i]['CURSOACAD_REF']){
           count ++;
+        }
 
-        if (this.title == "a" || this.title == aux.Egresados[i]['codTitulacion'])
+        if (this.title == "a" || this.title == aux.DBstudentsInfoOutput[i]['COD_TITULACION']){
           count ++;
+        }
 
-        if (this.dni == "" || this.dni == aux.Egresados[i]['numeroDocumento'])
+        if (this.dni == "" || this.dni == aux.DBstudentsInfoOutput[i]['NUMERO_DOCUMENTO']){
           count ++;
-
+        }
+          
         if (count == 4) {
-          this.alumnData.push(aux.Egresados[i])
+          this.alumnData.push(aux.DBstudentsInfoOutput[i])
         }
       }
 
-      this.pageData = this.data.slice((this.page -1) * this.pageSize, (this.page -1) * this.pageSize + this.pageSize);
+      this.pageData = this.alumnData.slice((this.page -1) * this.pageSize, (this.page -1) * this.pageSize + this.pageSize);
 
-      console.log(this.pageData);
+      console.log(this.alumnData);
 
       this.collectionSize = this.alumnData.length;
     });

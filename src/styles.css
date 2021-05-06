@@ -253,3 +253,14 @@ h3 {
 .white_card .white_card_header {
     padding: 22px 30px;
 }
+
+/* Table styles */
+table thead{
+    color: #41B3A3;
+    font-size: 14px;
+    background-color: #F0F0F0;
+}
+
+table tbody{
+    font-size: 14px;
+}
