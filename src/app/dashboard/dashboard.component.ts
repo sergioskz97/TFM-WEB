@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
         auxData.push(aux[i]["COUNT___"]);
       }
 
-      barData.push({ data: auxData, label: 'Alumnos', backgroundColor: '#41B3A3', borderColor: '#85DCB0', borderWidth: 2 });
+      barData.push({ data: auxData, label: 'Alumnos', backgroundColor: '#41B3A3'});
 
       // Bar Chart
       new Chart('barChart', {
