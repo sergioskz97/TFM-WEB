@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
         auxData.push(aux[i]["COUNT___"]);
       }
 
-      barData.push({ data: auxData, label: 'Alumnos', backgroundColor: '#41B3A3'});
+      barData.push({ data: auxData, label: 'Alumnos', backgroundColor: '#41B3A3' });
 
       // Bar Chart
       new Chart('barChart', {
@@ -53,16 +53,29 @@ export class DashboardComponent implements OnInit {
           }
         }
       });
+    });
+
+    this.dataService.getStudentsGender().subscribe(res => {
+      let aux = res.DBstudentsGenderOutput;
+      let auxData = new Array();
+      let pieLabels = ["Mujer", "Hombre"];
+      let pieData = new Array;
+
+      for (let i in aux) {
+        auxData.push(aux[i]["COUNT___"]);
+      }
+
+      pieData.push({ data: auxData, label: 'Alumnos', backgroundColor: ['#41B3A3', "#E27D60"] });
 
       // Pie Chart
       new Chart('pieChart', {
         type: 'doughnut',
         data: {
-          labels: barLabels,
-          datasets: barData
+          labels: pieLabels,
+          datasets: pieData
         },
         options: {
-          legend: { display: false },
+          legend: { display: true },
           title: {
             display: false,
             text: 'Predicted world population (millions) in 2050'
