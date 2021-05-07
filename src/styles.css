@@ -255,12 +255,23 @@ h3 {
 }
 
 /* Table styles */
-table thead{
+
+table thead {
+    width: auto;
     color: #41B3A3;
     font-size: 14px;
     background-color: #F0F0F0;
 }
 
-table tbody{
+table tbody {
     font-size: 14px;
+}
+
+/* Header styles */
+.navbar-brand{
+    margin-left: 12%;
+}
+
+.nav-item{
+    margin-right: 5%;
 }
